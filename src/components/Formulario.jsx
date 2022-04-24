@@ -79,7 +79,7 @@ const Formulario = ({setMonedas}) => {
           <SelectMonedas />
          <SelectCriptomoneda />
           
-          <InputSubmit type="submit" value="Cotizar" />
+          <InputSubmit type="submit" value="Consultar" />
       </form>
       </>
   )
