@@ -81,7 +81,7 @@ transition: background-color .3s ease;
     background-color: #7A7DFE;
     cursor: pointer;
 }
-`,xm=({setMonedas:e})=>{const[t,n]=q.exports.useState([]),[r,l]=q.exports.useState(!1),[i,o]=Ts("Elige tu Moneda",km),[u,s]=Ts("Elige tu Criptomoneda",t);return q.exports.useEffect(()=>{(async()=>{const m=(await(await fetch("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD")).json()).Data.map(w=>({id:w.CoinInfo.Name,nombre:w.CoinInfo.FullName}));n(m)})()},[]),ke(Yc,{children:[r&&Y(ym,{children:"Todos los campos son obligatorios"}),ke("form",{onSubmit:p=>{if(p.preventDefault(),[i,u].includes("")){l(!0);return}l(!1),e({moneda:i,criptomoneda:u})},children:[Y(o,{}),Y(s,{}),Y(Sm,{type:"submit",value:"Cotizar"})]})]})},Em=_e.div`
+`,xm=({setMonedas:e})=>{const[t,n]=q.exports.useState([]),[r,l]=q.exports.useState(!1),[i,o]=Ts("Elige tu Moneda",km),[u,s]=Ts("Elige tu Criptomoneda",t);return q.exports.useEffect(()=>{(async()=>{const m=(await(await fetch("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD")).json()).Data.map(w=>({id:w.CoinInfo.Name,nombre:w.CoinInfo.FullName}));n(m)})()},[]),ke(Yc,{children:[r&&Y(ym,{children:"Todos los campos son obligatorios"}),ke("form",{onSubmit:p=>{if(p.preventDefault(),[i,u].includes("")){l(!0);return}l(!1),e({moneda:i,criptomoneda:u})},children:[Y(o,{}),Y(s,{}),Y(Sm,{type:"submit",value:"Consultar"})]})]})},Em=_e.div`
 color: #fff;
 font-family: 'Lato', sans-serif;
 display:flex;
@@ -135,4 +135,4 @@ font-size: 34px;
   margin:10px auto 0 auto ;
 }
 
-`;function Rm(){const[e,t]=q.exports.useState({}),[n,r]=q.exports.useState({});return q.exports.useEffect(()=>{Object.keys(e).length>0&&(async()=>{const{moneda:i,criptomoneda:o}=e,u=`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${o}&tsyms=${i}`,f=await(await fetch(u)).json();r(f.DISPLAY[o][i])})()},[e]),ke(zm,{children:[Y(Tm,{src:Nm,alt:"imagenes criptomonedas"}),ke("div",{children:[Y(Lm,{children:"Cotiza Criptomoneda al instante"}),Y(xm,{setMonedas:t}),n.PRICE&&Y(Pm,{resultado:n})]})]})}wi.createRoot(document.getElementById("root")).render(Y(js.StrictMode,{children:Y(Rm,{})}));
+`;function Rm(){const[e,t]=q.exports.useState({}),[n,r]=q.exports.useState({});return q.exports.useEffect(()=>{Object.keys(e).length>0&&(async()=>{const{moneda:i,criptomoneda:o}=e,u=`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${o}&tsyms=${i}`,f=await(await fetch(u)).json();r(f.DISPLAY[o][i])})()},[e]),ke(zm,{children:[Y(Tm,{src:Nm,alt:"imagenes criptomonedas"}),ke("div",{children:[Y(Lm,{children:"Consulta el valor de tus Criptomonedas al instante"}),Y(xm,{setMonedas:t}),n.PRICE&&Y(Pm,{resultado:n})]})]})}wi.createRoot(document.getElementById("root")).render(Y(js.StrictMode,{children:Y(Rm,{})}));
