@@ -2,6 +2,7 @@ import { useState,useEffect } from 'react'
 import styled from '@emotion/styled'
 import Formulario from './components/Formulario'
 import Resultado from './components/Resultado'
+import Spinner from './components/Spinner'
 import ImagenCripto from './img/imagen-criptos.png'
 
 {/*STYLED COMPONENTS */ }
@@ -45,11 +46,15 @@ font-size: 34px;
 function App() {
   const [monedas, setMonedas] = useState({})
   const [resultado, setResultado] = useState({})
+   const [cargando, setCargando] = useState(false)
   
   useEffect(() => {
     if (Object.keys(monedas).length > 0) {
 
       const cotizarCripto = async () => {
+        setCargando(true)
+        {/*Limpiamos el resultado previo para mostrar el Spinner de carga */}
+        setResultado({})
         {/*Destructuring */}
         const { moneda, criptomoneda } = monedas
         {/*Inyecto en la url ${criptomoneda} y ${moneda} para realizar la consulta de forma dinámica, tras utilizar el formulario */}
@@ -60,6 +65,7 @@ function App() {
 
         {/*La api está estructurada, de manera que las propiedades varían en función de la criptomoneda, de esta manera se hace de forma dinámica [criptomoneda][moneda] */}
         setResultado(resultado.DISPLAY[criptomoneda][moneda])
+        setCargando(false)
       }
       cotizarCripto()
       }
@@ -75,7 +81,7 @@ function App() {
         <Formulario
         setMonedas={setMonedas}
         /> 
-        
+        {cargando && <Spinner></Spinner>}
         {resultado.PRICE && <Resultado
           resultado={resultado} />}
         
