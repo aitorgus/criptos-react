@@ -6,4 +6,9 @@ Para obtener los valores de cotización a tiempo real de las distintas criptomon
 
 ![CriptoMonedas](https://raw.githubusercontent.com/AGCG1991/AGCG1991.github.io/master/img/Criptomonedas.PNG)
 
+ <p align="center">
+   <img height="400em" src="https://raw.githubusercontent.com/AGCG1991/AGCG1991.github.io/master/img/Criptomonedas.PNG" />
+
+</p>
+
 [![pages-build-deployment](https://github.com/AGCG1991/criptos-react/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/AGCG1991/criptos-react/actions/workflows/pages/pages-build-deployment)
